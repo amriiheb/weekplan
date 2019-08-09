@@ -1,0 +1,42 @@
+
+<div class="container-fluid"> <!-- container centers content on large screens -->
+    <div class="row">       
+    <div class="col-lg-6">
+        {{state}}
+    <table class="table table-striped table-dark .full" width='100%'>
+            <thead>
+                    <tr>
+                      <th scope="col">#</th>
+                      <th scope="col">Titel</th>
+                      <th scope="col">Responsible</th>
+                      <th scope="col">description</th>
+                      <th scope="col">State</th>
+                      <th scope="col">Edit</th>
+                      <th scope="col">Deleate</th>
+    
+                    </tr>
+            </thead>
+                  <tbody>
+                       <tr *ngFor="let task of tasks; let i = index" [ngClass]="{
+                       'success': task.state === 'finished',
+                       'secondary':task.state ==='started',
+                       'danger': task.state === 'holding'}"  >
+                       <a *ngIf="task.state==state">
+                        <th scope="row">{{i}}</th>
+                        <td>{{task.title}}</td>
+                        <td>{{task.responsible}}</td>
+                        <td>{{task.description}}</td>
+                        <td> {{task.state}}   </td> 
+                        <td> <input class="btn-warning" type="button" value="Edit"   (click)="OnEditTask(task)" style="width:100%"> </td>
+                        <td> <input class="btn-danger" type="button" value="Deleate" (click)="OnDeleteTask(task)" style="width:100%"> </td>
+                       </a>
+    
+                      </tr>
+                       
+                  </tbody>
+                
+      
+    </table>
+    </div>
+    </div>
+    </div>

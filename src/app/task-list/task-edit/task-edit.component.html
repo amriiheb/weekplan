@@ -1,0 +1,44 @@
+<div class="row">
+        <div class="col-sm-8 col-sm-offset-2">
+          <h2>Enregistrer une nouvelle tache</h2>
+          <form [formGroup]="taskForm" (ngSubmit)="onSaveTask()">
+            <div class="taskForm">
+              <label for="title">Titre</label>
+              <input type="text" id="title"
+                     class="form-control" formControlName="title">
+            </div>
+            <div class="taskForm">
+              <label for="Responsible">Responsable</label>
+              <textarea id="responsible"
+              class="form-control" formControlName="responsible">
+                  </textarea>
+            </div>
+            <div class="taskForm">
+              <label for="description">Description</label>
+              <textarea id="description"
+                        class="form-control" formControlName="description">
+              </textarea>
+            </div>
+            <div class="taskform">
+                <label for="state">finished</label>
+              <input type="radio" id="state" name="state" value="finished" class="form-control" formControlName="state"  checked >
+              <label for="state">Started</label>
+              <input type="radio"  id="state" name="state" value="started" class="form-control" formControlName="state" checked>
+              <label for="state">Holding</label>
+              <input type="radio"  id="state" name="state" value="Holding" class="form-control" formControlName="state" checked>
+            </div>
+            <div class="taskForm">
+                <h4>Ajouter une photo</h4>
+                <input type="file" (change)="detectFiles($event)"
+                       class="form-control" accept="image/*">
+                <p class="text-success" *ngIf="fileUploaded">Fichier chargé !</p>
+            </div>
+            
+            <button class="btn btn-danger" (click)="onCancel()" >Cancel</button>
+            <button class="btn btn-success" [disabled]="bookForm.invalid || fileIsUploading"
+                  type="submit">Enregistrer
+            </button>
+          </form>
+
+      </div>
+      
