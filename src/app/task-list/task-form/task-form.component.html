@@ -21,12 +21,15 @@
               </textarea>
             </div>
             <div class="taskform">
-              <input type="radio" id="state" name="state" value="finished" class="form-control" formControlName="state"  checked >
-              <input type="radio"  id="state" name="state" value="started" class="form-control" formControlName="state" >
-              <input type="radio"  id="state" name="state" value="holding" class="form-control" formControlName="state" >
+              <label>finished</label>
+              <input type="radio" id="state" name="state" value="finished" class="form-control" formControlName="state"  checked style="color:#f00;background-color:#cb000a;display:inline-block;margin-left:1em;width:3em;" >
+              <label>satrted</label>
+              <input type="radio"  id="state" name="state" value="started" class="form-control" formControlName="state"  style="color:#f00;background-color:#d1d4c1;display:inline-block;margin-left:1em;width:3em;" >
+              <label>holding</label>
+              <input type="radio"  id="state" name="state" value="holding" class="form-control" formControlName="state" style="color:#f00;background-color:#1e13ac;display:inline-block;margin-left:1em;width:3em;" >
             </div>
             <button class="btn btn-danger" (click)="onCancel()" >Cancel</button>
-            <button class="btn btn-success" [disabled]="bookForm.invalid || fileIsUploading"
+            <button class="btn btn-success" 
                   type="submit">Enregistrer
             </button>
 

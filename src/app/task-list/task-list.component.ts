@@ -11,6 +11,9 @@ import { Router } from '@angular/router';
 })
 export class TaskListComponent implements OnInit {
   tasks: Task[];
+  newtasks :Task[] ;
+  finishedtasks :Task[] ;
+  holdingTasks :Task[] ;
   tasksSubscription: Subscription;
    @Input() statePage :string ;
   constructor(private taskService: TasksService, private router: Router) {}
@@ -42,6 +45,16 @@ export class TaskListComponent implements OnInit {
 
 OnEditTask(task :Task){
   this.router.navigate(['/tasks','edit',task.title,task.description,task.responsible,task.state]) ;
+}
+ondistributeTasks(){
+this.tasks.forEach(element => {
+  if(element.state=="started"){
+
+  }
+  
+});
+
+
 }
 
 

@@ -22,7 +22,7 @@ fileUploaded = false;
   
   initForm() {
     this.taskForm = this.formBuilder.group({
-      title: ['', Validators.required],
+      title:'',
       responsible:'',
       description: '',
       state :'started'
